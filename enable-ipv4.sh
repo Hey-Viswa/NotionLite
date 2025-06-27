@@ -6,7 +6,7 @@
 # 3. Run this script
 
 # Set your variables
-export SUPABASE_ACCESS_TOKEN="your-access-token"  # Replace with your actual token
+export SUPABASE_ACCESS_TOKEN="sbp_730475a2d5bb2f71d0d0675c2d2387cb47dc393c"  # Replace with your actual token
 export PROJECT_REF="csnnwcmrajmsbyuisanf"
 
 echo "🔍 Checking current IPv4 add-on status..."

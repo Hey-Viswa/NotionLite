@@ -12,5 +12,10 @@ export default defineConfig({
   dialect: "postgresql",
   dbCredentials: {
     url: process.env.DATABASE_URL || "",
+    database: "postgres",
+    port: 6543, // Default PostgreSQL port
+    host: "aws-0-ap-south-1.pooler.supabase.com",
+    user: "postgres.user",
+    password: process.env.PW || "",
   },
 });

@@ -4,8 +4,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "push": "drizzle-kit push",
-    "pull": "drizzle-kit introspect",
+    "push": "npx drizzle-kit push --dialect=postgresql --schema=./src/lib/supabase/schema.ts --url=postgresql://postgres.csnnwcmrajmsbyuisanf:biswagtr091.@aws-0-ap-south-1.pooler.supabase.com:5432/postgres",
+    "pull": "drizzle-kit pull --dialect=postgresql --out=./migrations --url=postgresql://postgres.csnnwcmrajmsbyuisanf:biswagtr091.@aws-0-ap-south-1.pooler.supabase.com:5432/postgres",
     "generate": "drizzle-kit generate --dialect=postgresql --schema=./src/lib/supabase/schema.ts",
     "drop": "drizzle-kit drop",
     "check": "drizzle-kit check",
@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.10",
-    "dotenv": "^16.5.0",
-    "drizzle-orm": "^0.36.0",
+    "dotenv": "^16.6.0",
+    "drizzle-orm": "^0.32.2",
     "next": "^14.2.21",
     "postcss": "^8.5.6",
     "postgres": "^3.4.7",
@@ -25,7 +25,8 @@
   "devDependencies": {
     "@types/node": "^24.0.3",
     "@types/react": "19.1.8",
-    "drizzle-kit": "^0.31.2",
+    "drizzle-kit": "^0.23.2",
+    "tsx": "^4.20.3",
     "typescript": "5.8.3"
   }
 }

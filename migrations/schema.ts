@@ -31,11 +31,8 @@ export const subscriptionStatus = pgEnum("subscription_status", [
 
 export const workspaces = pgTable("workspaces", {
   id: uuid("id").defaultRandom().primaryKey().notNull(),
-  createdAt: timestamp("created_at", {
-    withTimezone: true,
-    mode: "string",
-  }),
-  workspacesOwner: uuid("workspace_owner").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }),
+  workspaceOwner: uuid("workspace_owner").notNull(),
   title: text("title").notNull(),
   iconId: text("icon_id").notNull(),
   data: text("data"),
@@ -58,6 +55,7 @@ export const prices = pgTable("prices", {
   productId: text("product_id").references(() => products.id),
   active: boolean("active"),
   description: text("description"),
+  // You can use { mode: "bigint" } if numbers are exceeding js number limitations
   unitAmount: bigint("unit_amount", { mode: "number" }),
   currency: text("currency"),
   type: pricingType("type"),
@@ -69,10 +67,7 @@ export const prices = pgTable("prices", {
 
 export const folders = pgTable("folders", {
   id: uuid("id").defaultRandom().primaryKey().notNull(),
-  createdAt: timestamp("created_at", {
-    withTimezone: true,
-    mode: "string",
-  }),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }),
   workspaceId: uuid("workspace_id").notNull(),
   title: text("title").notNull(),
   iconId: text("icon_id").notNull(),
@@ -87,10 +82,7 @@ export const folders = pgTable("folders", {
 
 export const files = pgTable("files", {
   id: uuid("id").defaultRandom().primaryKey().notNull(),
-  createdAt: timestamp("created_at", {
-    withTimezone: true,
-    mode: "string",
-  }),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }),
   workspaceId: uuid("workspace_id").notNull(),
   title: text("title").notNull(),
   iconId: text("icon_id").notNull(),
@@ -150,7 +142,6 @@ export const subscriptions = pgTable("subscriptions", {
     mode: "string",
   }).default(sql`now`),
 });
-
 
 export const users = pgTable("users", {
   id: uuid("id").primaryKey().notNull(),
