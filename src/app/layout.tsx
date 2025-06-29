@@ -1,10 +1,12 @@
 import React from "react";
 import { Inter } from "next/font/google";
 import "./global.css";
-import db from '../lib/supabase/db'
+import { DM_Sans } from "next/font/google";
+import { twMerge } from "tailwind-merge";
+import db from "../lib/supabase/db";
+import { ThemeProvider } from "@/lib/providers/next-theme-provider";
 
-
-const inter = Inter({ subsets: ["latin"] });
+const inter = DM_Sans({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Next.js Workspace App",
@@ -18,10 +20,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <main className="min-h-screen flex flex-col items-center p-8">
+      <body className={twMerge(inter.className)}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem={true}
+        >
           {children}
-        </main>
+        </ThemeProvider>
       </body>
     </html>
   );

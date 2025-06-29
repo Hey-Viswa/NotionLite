@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "push": "npx drizzle-kit push --dialect=postgresql --schema=./src/lib/supabase/schema.ts --url=postgresql://postgres.csnnwcmrajmsbyuisanf:biswagtr091.@aws-0-ap-south-1.pooler.supabase.com:5432/postgres",
@@ -12,6 +12,7 @@
     "up": "drizzle-kit up"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/postcss": "^4.1.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
